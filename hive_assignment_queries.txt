@@ -19,4 +19,4 @@ f. Calculate quartelry sales for each city.
 select qtr_id, min(sales) from sales_order_orc group by city, qtr_id;
 
 h. Find a month for each year in which maximum number of quantities were sold.
-**with my as(select year_id, month_id, sum(quantityordered) as max_ordered from sales_order_orc group by year_id, month_id), my2 as(select year_id, max(max_ordered) as max_sales from my group by year_id) select my2.year_id, month_id, max_sales from my inner join my2 on my.max_sales = my2.max_sales;**
+with my as(select year_id, month_id, sum(quantityordered) as max_ordered from sales_order_orc group by year_id, month_id), my2 as(select year_id, max(max_ordered) as max_sales from my group by year_id) select my2.year_id, month_id, max_sales from my inner join my2 on my.max_sales = my2.max_sales;
